@@ -1,0 +1,7 @@
+
+[package]
+name = "NFTCollection"
+version = "0.0.1"
+
+[addresses]
+NFTCollection = "0xa91b2ce9ef2a8f1c4d524e3c455209f6d86a18fb9a221f38ca08fe1f08a259ef"
