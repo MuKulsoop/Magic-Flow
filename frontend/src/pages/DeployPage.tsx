@@ -26,57 +26,82 @@ export const DeployPage: React.FC = () => {
 
   const handleDeploy = async () => {
     setDeploymentStep('deploying');
-
     try {
-      // // 1. Build the transaction block to deploy the Move package
-      // const txb = new TransactionBlock();
-
-      // // Replace with actual bytecode & metadata of your Move package
-      // const compiledModules = [
-      //   // Your compiled Move bytecode in Uint8Array format (use your compiled .mv files here)
-      // ];
-      // const dependencies = [
-      //   // SUI module dependencies, e.g., ["0x2", "0x3"]
-      // ];
-
-      // // Add the Move package to the transaction block
-      // txb.publish({
-      //   modules: compiledModules,
-      //   dependencies: dependencies,
-      // });
-
-      // // 2. Sign and execute the transaction
-      // const result = await signAndExecuteTransactionBlock({
-      //   transactionBlock: txb,
-      //   options: {
-      //     showEffects: true,
-      //     showEvents: true,
-      //   },
-      // });
-
-      // // 3. Handle success
-      // const txDigest = result.digest;
-      // const deployedPackageId = result.effects?.created?.find(obj => obj.owner === 'Immutable')?.reference?.objectId;
-
-      // const contract: Contract = {
-      //   id: Math.random().toString(36).substring(2, 9),
-      //   name: 'NFT Collection',
-      //   description: 'A smart contract for creating and managing NFT collections on SUI.',
-      //   ownerId: walletAddress || '1',
-      //   createdAt: new Date().toISOString(),
-      //   updatedAt: new Date().toISOString(),
-      //   flowchartData: { nodes: [], edges: [] }, // (You can replace this with actual flowchart data)
-      //   deploymentStatus: 'deployed',
-      //   deploymentHash: txDigest,
-      // };
-
-      // setDeployedContract(contract);
+      // Simulate deployment process
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      
+      // Mock successful deployment
+      const mockDeployedContract: Contract = {
+        id: Math.random().toString(36).substring(2, 9),
+        name: 'NFT Collection',
+        description: 'A smart contract for creating and managing NFT collections on SUI.',
+        ownerId: '1',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        flowchartData: { nodes: [], edges: [] },
+        deploymentStatus: 'deployed',
+        deploymentHash: '0x' + Array(64).fill(0).map(() => 
+          Math.floor(Math.random() * 16).toString(16)
+        ).join(''),
+      };
+      
+      setDeployedContract(mockDeployedContract);
       setDeploymentStep('success');
-    } catch (error: any) {
+    } catch (error) {
       console.error('Deployment failed:', error);
-      setDeploymentError(error.message || 'Deployment failed');
+      setDeploymentError('There was an error deploying your contract. Please try again.');
       setDeploymentStep('error');
     }
+    // try {
+    //   // // 1. Build the transaction block to deploy the Move package
+    //   // const txb = new TransactionBlock();
+
+    //   // // Replace with actual bytecode & metadata of your Move package
+    //   // const compiledModules = [
+    //   //   // Your compiled Move bytecode in Uint8Array format (use your compiled .mv files here)
+    //   // ];
+    //   // const dependencies = [
+    //   //   // SUI module dependencies, e.g., ["0x2", "0x3"]
+    //   // ];
+
+    //   // // Add the Move package to the transaction block
+    //   // txb.publish({
+    //   //   modules: compiledModules,
+    //   //   dependencies: dependencies,
+    //   // });
+
+    //   // // 2. Sign and execute the transaction
+    //   // const result = await signAndExecuteTransactionBlock({
+    //   //   transactionBlock: txb,
+    //   //   options: {
+    //   //     showEffects: true,
+    //   //     showEvents: true,
+    //   //   },
+    //   // });
+
+    //   // // 3. Handle success
+    //   // const txDigest = result.digest;
+    //   // const deployedPackageId = result.effects?.created?.find(obj => obj.owner === 'Immutable')?.reference?.objectId;
+
+    //   // const contract: Contract = {
+    //   //   id: Math.random().toString(36).substring(2, 9),
+    //   //   name: 'NFT Collection',
+    //   //   description: 'A smart contract for creating and managing NFT collections on SUI.',
+    //   //   ownerId: walletAddress || '1',
+    //   //   createdAt: new Date().toISOString(),
+    //   //   updatedAt: new Date().toISOString(),
+    //   //   flowchartData: { nodes: [], edges: [] }, // (You can replace this with actual flowchart data)
+    //   //   deploymentStatus: 'deployed',
+    //   //   deploymentHash: txDigest,
+    //   // };
+
+    //   // setDeployedContract(contract);
+    //   setDeploymentStep('success');
+    // } catch (error: any) {
+    //   console.error('Deployment failed:', error);
+    //   setDeploymentError(error.message || 'Deployment failed');
+    //   setDeploymentStep('error');
+    // }
   };
 
   return (
