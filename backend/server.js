@@ -16,7 +16,9 @@ const app = express();
 connectDB();
 
 // Middleware
+app.options('*', cors()); // Allow preflight for all routes
 app.use(cors());
+
 app.use(express.json()); // ✅ Fixed: added ()
 
 

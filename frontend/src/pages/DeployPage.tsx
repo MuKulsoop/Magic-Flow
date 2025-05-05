@@ -8,7 +8,7 @@ import { WalletConnect } from '../components/wallet/WalletConnect';
 import { Contract } from '../types';
 import { ArrowLeft, Check, CheckCircle, AlertCircle } from 'lucide-react';
 import { useWallet } from '@suiet/wallet-kit';
-import { TransactionBlock } from '@mysten/sui.js/transactions';
+
 
 export const DeployPage: React.FC = () => {
   const navigate = useNavigate();
@@ -28,49 +28,49 @@ export const DeployPage: React.FC = () => {
     setDeploymentStep('deploying');
 
     try {
-      // 1. Build the transaction block to deploy the Move package
-      const txb = new TransactionBlock();
+      // // 1. Build the transaction block to deploy the Move package
+      // const txb = new TransactionBlock();
 
-      // Replace with actual bytecode & metadata of your Move package
-      const compiledModules = [
-        // Your compiled Move bytecode in Uint8Array format (use your compiled .mv files here)
-      ];
-      const dependencies = [
-        // SUI module dependencies, e.g., ["0x2", "0x3"]
-      ];
+      // // Replace with actual bytecode & metadata of your Move package
+      // const compiledModules = [
+      //   // Your compiled Move bytecode in Uint8Array format (use your compiled .mv files here)
+      // ];
+      // const dependencies = [
+      //   // SUI module dependencies, e.g., ["0x2", "0x3"]
+      // ];
 
-      // Add the Move package to the transaction block
-      txb.publish({
-        modules: compiledModules,
-        dependencies: dependencies,
-      });
+      // // Add the Move package to the transaction block
+      // txb.publish({
+      //   modules: compiledModules,
+      //   dependencies: dependencies,
+      // });
 
-      // 2. Sign and execute the transaction
-      const result = await signAndExecuteTransactionBlock({
-        transactionBlock: txb,
-        options: {
-          showEffects: true,
-          showEvents: true,
-        },
-      });
+      // // 2. Sign and execute the transaction
+      // const result = await signAndExecuteTransactionBlock({
+      //   transactionBlock: txb,
+      //   options: {
+      //     showEffects: true,
+      //     showEvents: true,
+      //   },
+      // });
 
-      // 3. Handle success
-      const txDigest = result.digest;
-      const deployedPackageId = result.effects?.created?.find(obj => obj.owner === 'Immutable')?.reference?.objectId;
+      // // 3. Handle success
+      // const txDigest = result.digest;
+      // const deployedPackageId = result.effects?.created?.find(obj => obj.owner === 'Immutable')?.reference?.objectId;
 
-      const contract: Contract = {
-        id: Math.random().toString(36).substring(2, 9),
-        name: 'NFT Collection',
-        description: 'A smart contract for creating and managing NFT collections on SUI.',
-        ownerId: walletAddress || '1',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        flowchartData: { nodes: [], edges: [] }, // (You can replace this with actual flowchart data)
-        deploymentStatus: 'deployed',
-        deploymentHash: txDigest,
-      };
+      // const contract: Contract = {
+      //   id: Math.random().toString(36).substring(2, 9),
+      //   name: 'NFT Collection',
+      //   description: 'A smart contract for creating and managing NFT collections on SUI.',
+      //   ownerId: walletAddress || '1',
+      //   createdAt: new Date().toISOString(),
+      //   updatedAt: new Date().toISOString(),
+      //   flowchartData: { nodes: [], edges: [] }, // (You can replace this with actual flowchart data)
+      //   deploymentStatus: 'deployed',
+      //   deploymentHash: txDigest,
+      // };
 
-      setDeployedContract(contract);
+      // setDeployedContract(contract);
       setDeploymentStep('success');
     } catch (error: any) {
       console.error('Deployment failed:', error);
