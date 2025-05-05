@@ -24,7 +24,7 @@ export const ContractPreview: React.FC<ContractPreviewProps> = ({
       setError(null);
 
       try {
-        const response = await axios.post('http://localhost:8000/api/ai/generate-contract', {
+        const response = await axios.post('https://magic-flow.onrender.com/api/ai/generate-contract', {
           contractName,
           description: contractDescription,
           flowchartData,

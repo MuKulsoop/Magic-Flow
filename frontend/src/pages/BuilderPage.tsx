@@ -7,7 +7,7 @@ import { ContractPreview } from "../components/contract/ContractPreview";
 import { ContractTemplateCard } from "../components/contract/ContractTemplateCard";
 import { useAuth } from "../context/AuthContext";
 import { FlowchartData, ContractTemplate } from "../types";
-import { mockTemplates } from "../utils/mockData";
+import { mockTemplates } from "./utils/mockData";
 import { Plus } from "lucide-react";
 
 export const BuilderPage: React.FC = () => {

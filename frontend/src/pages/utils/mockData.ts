@@ -1,4 +1,4 @@
-import { Contract, ContractTemplate } from '../types';
+import { Contract, ContractTemplate } from '../../types';
 
 // Mock contracts for the portfolio page
 export const mockContracts: Contract[] = [

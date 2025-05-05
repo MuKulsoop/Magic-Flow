@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { PageHeader } from '../components/common/PageHeader';
 import { Button } from '../components/ui/Button';
 import { ContractCard } from '../components/contract/ContractCard';
-import { mockContracts } from '../utils/mockData';
+import { mockContracts } from './utils/mockData';
 import { Plus } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
