@@ -21,6 +21,9 @@ app.use(cors());
 
 app.use(express.json()); // ✅ Fixed: added ()
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 // Routes
 app.use("/api/contracts", contractRoutes);
